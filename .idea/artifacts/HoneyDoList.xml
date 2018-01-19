@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="HoneyDoList">
+    <output-path>G:/compiler/artifacts/HoneyDoList</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyAlias" value="key0" />
+        <option name="keyPassword" value="U2FueU8yMzkz" />
+        <option name="keyStorePassword" value="U2FueU8yMzkz" />
+        <option name="keyStoreUrl" value="file://$APPLICATION_HOME_DIR$/my-key-store.jks" />
+        <option name="signingMode" value="RELEASE_SIGNED" />
+      </options>
+    </properties>
+    <root id="archive" name="HoneyDoList.apk" />
+  </artifact>
+</component>
