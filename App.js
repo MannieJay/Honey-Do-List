@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import {
   AsyncStorage,
-  StyleSheet,
   Text,
   View,
-  FlatList,
   Button,
   TextInput,
   TouchableOpacity,
-  Form,
   Image
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';

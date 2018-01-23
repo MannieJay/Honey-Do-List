@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   AsyncStorage,
-  StyleSheet,
   Text,
   View,
   FlatList,
@@ -109,7 +108,7 @@ export default class TodoList extends React.Component {
               },
             }
             )
-            .then(response => {
+            .then(() => {
               this.props.navigation.navigate('TodoList');
             })
             .catch(error => {
@@ -134,7 +133,7 @@ export default class TodoList extends React.Component {
                 authorization: token,
               },
             })
-            .then(response => {
+            .then(() => {
               this.props.navigation.navigate('TodoList');
             })
             .catch(error => {

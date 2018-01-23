@@ -1,14 +1,10 @@
 import React from 'react';
 import {
   AsyncStorage,
-  StyleSheet,
   Text,
   View,
-  FlatList,
   Button,
   TextInput,
-  TouchableHighlight,
-  Form,
 } from 'react-native';
 
 const axios = require('axios');
