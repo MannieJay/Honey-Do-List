@@ -161,11 +161,19 @@ export default class SharedTodoList extends React.Component {
               ? "Your Shared Honey Do List!"
               : "Your Shared Honey Do List is Empty!"}
           </Text>
-          <TouchableOpacity onPress={() => {
-            this.props.navigation.navigate('TodoList');
-          }}>
-            <Text style={styles.linkSwitchText}>SWITCH to personal list</Text>
-          </TouchableOpacity>
+          <View style={styles.containerLinkSharedList}>
+            <TouchableOpacity onPress={() => {
+              this.props.navigation.navigate('TodoList');
+            }}>
+              <Text style={styles.linkSwitchText}>SWITCH to personal list</Text>
+            </TouchableOpacity>
+            <Text>    </Text>
+            <TouchableOpacity onPress={() => {
+              this.props.navigation.navigate('TodoList');
+            }}>
+              <Text style={styles.linkGrantText}>Grant Access</Text>
+            </TouchableOpacity>
+          </View>
           {this.state.error !== '' ? <Text>{this.state.error}</Text> : null}
           <FlatList
             keyExtractor={item => item._id}

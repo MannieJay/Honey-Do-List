@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   linkSwitchText: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: '500',
     color: 'green',
     justifyContent: 'center',
@@ -97,6 +97,18 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontSize: 25,
     padding: 80,
+  },
+  containerLinkSharedList: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  linkGrantText: {
+    fontSize: 22,
+    fontWeight: '500',
+    color: 'red',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
   }
 });
 
