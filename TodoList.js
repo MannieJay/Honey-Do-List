@@ -7,9 +7,11 @@ import {
   Button,
   TextInput,
   Image,
+  TouchableOpacity
 } from 'react-native';
 const axios = require('axios');
 import styles from './Styles';
+import SharedToDoList from './SharedToDoList';
 
 export default class TodoList extends React.Component {
   state = {
@@ -156,9 +158,14 @@ export default class TodoList extends React.Component {
         <View style={styles.containerAll}>
           <Text style={styles.header}>
             {this.state.tasks.length > 0
-              ? "Your Honey Do List!"
-              : "Your Honey Do List is Empty!"}
+              ? "Your Personal List!"
+              : "Your Personal List is Empty!"}
           </Text>
+          <TouchableOpacity onPress={() => {
+            this.props.navigation.navigate('SharedToDoList');
+          }}>
+            <Text style={styles.linkSwitchText}>SWITCH to shared Honey Do List</Text>
+          </TouchableOpacity>
           {this.state.error !== '' ? <Text>{this.state.error}</Text> : null}
           <FlatList
             keyExtractor={item => item._id}

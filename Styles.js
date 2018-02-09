@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   textItem: {
-    backgroundColor: 'rgba(255,249,178, 0.5)',
+    backgroundColor: 'rgba(215,219,118, 0.7)',
     paddingLeft: 12,
     paddingRight: 12,
     fontSize: 24,
@@ -45,7 +45,9 @@ const styles = StyleSheet.create({
   },
   header: {
     marginTop: 50,
-    fontSize: 20,
+    marginBottom: 25,
+    fontSize: 25,
+    fontWeight: '500'
   },
   headerLarge: {
     fontSize: 40,
@@ -66,6 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  containerSignUp: {
+    flex: 1,
+    backgroundColor: 'rgba(255,249,178, 0.5)',
+    alignItems: 'center',
+  },
   containerToDoBody: {
     flex: 1,
     backgroundColor: '#faebd7',
@@ -78,6 +85,18 @@ const styles = StyleSheet.create({
     color: 'blue',
     justifyContent: 'center',
     textDecorationLine: 'underline',
+  },
+  linkSwitchText: {
+    fontSize: 25,
+    fontWeight: '500',
+    color: 'green',
+    justifyContent: 'center',
+    textDecorationLine: 'underline',
+  },
+  signupHeader: {
+    marginTop: 50,
+    fontSize: 25,
+    padding: 80,
   }
 });
 

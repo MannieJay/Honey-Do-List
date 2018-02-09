@@ -12,6 +12,7 @@ import { StackNavigator } from 'react-navigation';
 import SignUp from './SignUp';
 import styles from './Styles';
 import TodoList from './TodoList';
+import SharedToDoList from './SharedToDoList';
 
 const axios = require('axios');
 
@@ -123,6 +124,7 @@ const Routes = StackNavigator({
   Home: { screen: Home },
   TodoList: { screen: TodoList },
   SignUp: { screen: SignUp },
+  SharedToDoList: { screen: SharedToDoList },
 });
 
 export default Routes;

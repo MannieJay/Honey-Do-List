@@ -76,9 +76,9 @@ export default class SignUp extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.containerSignUp}>
         <View>
-          <Text>Sign Up</Text>
+          <Text style={styles.signupHeader}>Sign up to create a new account.</Text>
         </View>
         <Text style={styles.buttonText}>Email</Text>
         <TextInput
@@ -100,9 +100,6 @@ export default class SignUp extends React.Component {
           onPress={() => this.createUser(this.state.email, this.state.password)}
           title="Sign Up"
         />
-        <View style={styles.row}>
-          <Text style={styles.buttonText}>Chuck Norris just cuzzz!!</Text>
-        </View>
       </View>
     );
   }
