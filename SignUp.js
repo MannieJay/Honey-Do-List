@@ -54,7 +54,7 @@ export default class SignUp extends React.Component {
       password: this.state.password,
     };
     axios
-      .post('https://honey-server.herokuapp.com/users', newUser)
+      .post('http://192.168.0.200:3000/users', newUser)
       .then(res => {
         const token = res.data.token;
         console.log(res.data.token);

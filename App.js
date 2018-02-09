@@ -13,6 +13,7 @@ import SignUp from './SignUp';
 import styles from './Styles';
 import TodoList from './TodoList';
 import SharedToDoList from './SharedToDoList';
+import GrantAccess from './GrantAccess';
 
 const axios = require('axios');
 
@@ -53,7 +54,7 @@ class Home extends Component {
       password: this.state.password,
     };
     axios
-      .post('https://honey-server.herokuapp.com/signin', newUser)
+      .post('http://192.168.0.200:3000/signin', newUser)
       .then(res => {
         const token = res.data.token;
         if (token) {
@@ -125,6 +126,7 @@ const Routes = StackNavigator({
   TodoList: { screen: TodoList },
   SignUp: { screen: SignUp },
   SharedToDoList: { screen: SharedToDoList },
+  GrantAccess: { screen: GrantAccess },
 });
 
 export default Routes;

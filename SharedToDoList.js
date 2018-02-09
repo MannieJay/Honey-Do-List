@@ -12,6 +12,7 @@ import {
 const axios = require('axios');
 import styles from './Styles';
 import TodoList from './TodoList';
+import GrantAccess from './GrantAccess';
 
 export default class SharedTodoList extends React.Component {
   state = {
@@ -27,7 +28,7 @@ export default class SharedTodoList extends React.Component {
       .then(token => {
         if (token !== null) {
           axios
-            .get('https://honey-server.herokuapp.com/user', {
+            .get('http://192.168.0.200:3000/user', {
               headers: {
                 Authorization: token,
               },
@@ -64,7 +65,7 @@ export default class SharedTodoList extends React.Component {
         if (token !== null) {
           axios
             .put(
-            `https://honey-server.herokuapp.com/todos/${id}`,
+            `http://192.168.0.200:3000/todos/${id}`,
             {},
             {
               headers: {
@@ -100,7 +101,7 @@ export default class SharedTodoList extends React.Component {
         if (token !== null) {
           axios
             .post(
-            'https://honey-server.herokuapp.com/todos',
+            'http://192.168.0.200:3000/todos',
             {
               text: this.state.text,
             },
@@ -130,7 +131,7 @@ export default class SharedTodoList extends React.Component {
       .then(token => {
         if (token !== null) {
           axios
-            .delete(`https://honey-server.herokuapp.com/todos/${id}`, {
+            .delete(`http://192.168.0.200:3000/todos/${id}`, {
               headers: {
                 authorization: token,
               },
@@ -169,7 +170,7 @@ export default class SharedTodoList extends React.Component {
             </TouchableOpacity>
             <Text>    </Text>
             <TouchableOpacity onPress={() => {
-              this.props.navigation.navigate('TodoList');
+              this.props.navigation.navigate('GrantAccess');
             }}>
               <Text style={styles.linkGrantText}>Grant Access</Text>
             </TouchableOpacity>

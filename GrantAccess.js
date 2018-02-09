@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const axios = require('axios');
-import TodoList from './SharedToDoList';
+import SharedTodoList from './SharedToDoList';
 
 import styles from './Styles';
 
@@ -34,28 +34,40 @@ export default class Grant extends React.Component {
     };
 
     grantUser = () => {
-        console.log('email', this.state.grantemail);
-        const grantUser = {
-            grantemail: this.state.grantemail,
-        };
-        axios
-            .post('https://honey-server.herokuapp.com/todo', grantUser)
-            .then(res => {
-                const token = res.data.token;
-                console.log(res.data.token);
-                if (token) {
-                    AsyncStorage.setItem('token', token)
-                        .then(AsyncRes => {
-                            // route to Todos
+        if (this.state.grantemail === '') {
+            this.setState({ error: `No email entered.` });
+            setTimeout(() => {
+                this.setState({ error: '' });
+            }, 2000);
+            return;
+        }
+        const myToken = AsyncStorage.getItem('token');
+        console.log('grantemail sending', this.state.grantemail)
+        myToken
+            .then(token => {
+                if (token !== null) {
+                    axios
+                        .post(
+                        'http://192.168.0.200:3000/user',
+                        {
+                            email: this.state.grantemail,
+                        },
+                        {
+                            headers: {
+                                authorization: token,
+                            },
+                        }
+                        )
+                        .then(() => {
                             this.props.navigation.navigate('SharedToDoList');
                         })
-                        .catch(err => {
-                            throw new Error(err);
+                        .catch(error => {
+                            console.log(error);
                         });
                 }
             })
             .catch(err => {
-                console.log(err);
+                console.log('On did Mount', err);
             });
     };
 
@@ -69,13 +81,13 @@ export default class Grant extends React.Component {
                 <TextInput
                     style={styles.inputStyles}
                     onSubmitEditing={this.addTodo}
-                    onChangeText={this.handleEmailGrant}
+                    onChangeText={this.handleEmailChange}
                     value={this.state.text}
                     placeholder="Grant access to email"
                 />
                 <Button
                     onPress={() => this.grantUser(this.state.grantemail)}
-                    title="Grant"
+                    title="Grant Access"
                 />
             </View>
         );
